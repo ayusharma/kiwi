@@ -1,0 +1,36 @@
+<ion-view title="Kiwi">
+<ion-content class="padding">
+<div class="list list-inset" data-ng-controller="DashCtrl">
+	
+	<label class="item item-input">
+		<i class="icon ion-search placeholder-icon"></i>
+		<input type="text" placeholder="Enter a word for query" data-ng-model="word">
+	</label>
+	<!-- <button class="button button-block button-positive" data-ng-click="wordMean()">Find the Definition</button> -->
+
+
+  <a class="item item-icon-left" href="#/tab/dash/detail" data-ng-click="wordMean()">
+    <i class="icon ion-document-text"></i>
+    Get Definition
+  </a>
+
+  <a class="item item-icon-left" href="#/tab/dash/example" data-ng-click="wordMean()">
+    <i class="icon ion-checkmark"></i>
+    Examples
+  </a>
+
+  <a class="item item-icon-left " href="#/tab/dash/pro" data-ng-click="wordMean()">
+    <i class="icon ion-outlet"></i>
+    Pronounciation
+  </a>
+  <a class="item item-icon-left " href="#/tab/dash/related" data-ng-click="wordMean()">
+    <i class="icon ion-fork-repo"></i>
+    Related Words
+  </a>
+  <a class="item item-icon-left " href="#/tab/dash/audio" data-ng-click="wordMean()">
+    <i class="icon ion-headphone"></i>
+    Listen Audio
+  </a>
+</div>
+</ion-content>
+</ion-view>
