@@ -1,4 +1,5 @@
 var recword;
+var w1,w2,w3;
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope,$http) {
@@ -41,14 +42,34 @@ angular.module('starter.controllers', [])
 		$scope.related = data;
 		});
 })
-.controller('FriendsCtrl', function($scope, Friends) {
-  $scope.friends = Friends.all();
+.controller('ActivityCtrl', function($scope) {
+  // $scope.friends = Friends.all();
 })
 
-.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
-  $scope.friend = Friends.get($stateParams.friendId);
+.controller('WodCtrl', function($scope,$http) {
+  $http({method: 'GET', url: 'http://api.wordnik.com:80/v4/words.json/wordOfTheDay?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(data){
+		$scope.wod = [data];
+		var temp = [data.examples];
+		$scope.wodtext = temp;
+		});
 })
+
+.controller('MtcCtrl', function($scope,$http) {
+  $http({method: 'GET', url: 'http://api.wordnik.com:80/v4/words.json/randomWords?hasDictionaryDef=false&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&sortBy=alpha&sortOrder=asc&limit=3&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(data){
+		$scope.rd = data;
+		w1 = data[0].word;
+		w2 = data[1].word;
+		w3 = data[2].word;
+		}).then(function(){
+			$http({method: 'GET', url: 'http://api.wordnik.com:80/v4/word.json/'+w1+'/definitions?limit=1&includeRelated=true&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(jd){
+				$scope.wone = jd;
+			});
+		});
+})
+
+// .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
+//   $scope.friend = Friends.get($stateParams.friendId);
+// })
 
 .controller('AccountCtrl', function($scope) {
 });
-

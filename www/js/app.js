@@ -98,23 +98,33 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-    .state('tab.friends', {
-      url: '/friends',
+    .state('tab.activity', {
+      url: '/activity',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/tab-friends.html',
-          controller: 'FriendsCtrl'
+        'tab-activity': {
+          templateUrl: 'templates/tab-activity.html',
+          controller: 'ActivityCtrl'
         }
       }
     })
 
 
-    .state('tab.friend-detail', {
-      url: '/friend/:friendId',
+    .state('tab.activity-wod', {
+      url: '/activity/wod',
       views: {
-        'tab-friends': {
-          templateUrl: 'templates/friend-detail.html',
-          controller: 'FriendDetailCtrl'
+        'tab-activity': {
+          templateUrl: 'templates/activity-wod.html',
+          controller: 'WodCtrl'
+        }
+      }
+    })
+
+    .state('tab.activity-mtc', {
+      url: '/activity/mtc',
+      views: {
+        'tab-activity': {
+          templateUrl: 'templates/activity-mtc.html',
+          controller: 'MtcCtrl'
         }
       }
     })
