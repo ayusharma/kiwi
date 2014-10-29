@@ -64,6 +64,14 @@ angular.module('starter.controllers', [])
 			$http({method: 'GET', url: 'http://api.wordnik.com:80/v4/word.json/'+w1+'/definitions?limit=1&includeRelated=true&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(jd){
 				$scope.wone = jd;
 			});
+		}).then(function(){
+			$http({method: 'GET', url: 'http://api.wordnik.com:80/v4/word.json/'+w2+'/definitions?limit=1&includeRelated=true&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(kd){
+				$scope.wtwo = kd;
+			});
+		}).then(function(){
+			$http({method: 'GET', url: 'http://api.wordnik.com:80/v4/word.json/'+w3+'/definitions?limit=1&includeRelated=true&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(ld){
+				$scope.wthree = ld;
+			});
 		});
 })
 

@@ -2,17 +2,35 @@
 <ion-content class="padding">
 <div data-ng-controller="MtcCtrl">
 	<p data-ng-repeat="words in rd"> {{ words.word }}</p>
-	<p data-ng-repeat="wo in wone"> {{ wo.text }}</p>
+	<!-- <p data-ng-repeat="wo in wone"> {{ wo.text }} </p> -->
+	<!-- <p data-ng-repeat="wt in wtwo"> {{ wt.text }}</p> -->
+	<!-- <p data-ng-repeat="wth in wthree"> {{ wth.text }}</p> -->
 	<div class="list">
 
   <label class="item item-input item-select">
-    <div class="input-label">
-      Lightsaber
+    <div class="input-label" data-ng-repeat="wo in wone">
+      {{ wo.text }}
     </div>
     <select>
-      <option>Blue</option>
-      <option selected>Green</option>
-      <option>Red</option>
+	<option data-ng-repeat="words in rd">{{ words.word }}</option>
+    </select>
+  </label>
+
+  <label class="item item-input item-select">
+    <div class="input-label" data-ng-repeat="wt in wtwo">
+      {{ wt.text }}
+    </div>
+    <select>
+      <option data-ng-repeat="words in rd">{{ words.word }}</option>
+    </select>
+  </label>
+
+  <label class="item item-input item-select">
+    <div class="input-label" data-ng-repeat="wth in wthree">
+      {{ wth.text }}
+    </div>
+    <select>
+      <option data-ng-repeat="words in rd">{{ words.word }}</option>
     </select>
   </label>
 
