@@ -1,40 +1,50 @@
 <ion-view title="Kiwi">
 <ion-content class="padding">
 <div data-ng-controller="MtcCtrl">
-	<p data-ng-repeat="words in rd"> {{ words.word }}</p>
+  <div class="list">
+
+  <div class="item item-divider">
+    Make the pairs of given words with their meanings.
+  </div>
+
+  <a class="item" href="#">
+    <h4 data-ng-repeat="words in rd | orderBy:'id'"> {{ words.word }}</h4>
+  </a>
+
+</div>
 	<!-- <p data-ng-repeat="wo in wone"> {{ wo.text }} </p> -->
 	<!-- <p data-ng-repeat="wt in wtwo"> {{ wt.text }}</p> -->
 	<!-- <p data-ng-repeat="wth in wthree"> {{ wth.text }}</p> -->
 	<div class="list">
-
-  <label class="item item-input item-select">
+ 
+  <label class="item item-input item-select" data-ng-style="wstyleone">
     <div class="input-label" data-ng-repeat="wo in wone">
-      {{ wo.text }}
+      {{ wo.text }} <b data-ng-model="wtone" class="dark">{{ wtone }}</b>
     </div>
-    <select>
-	<option data-ng-repeat="words in rd">{{ words.word }}</option>
-    </select>
+    <!-- <select data-ng-options="word for words in rd" data-ng-model="selectedOption"></select> -->
+     <select data-ng-model="sel1" data-ng-options="words.word for words in rd | orderBy:'id'" data-ng-required=""></select>
+    <!-- <select data-ng-model="sel">
+	<option data-ng-repeat="words in rd | orderBy:'id'">{{ words }}</option>
+    </select> -->
   </label>
 
-  <label class="item item-input item-select">
+  <label class="item item-input item-select" data-ng-style="wstyletwo">
     <div class="input-label" data-ng-repeat="wt in wtwo">
-      {{ wt.text }}
+      {{ wt.text }} <b data-ng-model="wtone" class="dark">{{ wttwo }}</b>
     </div>
-    <select>
-      <option data-ng-repeat="words in rd">{{ words.word }}</option>
-    </select>
+    <select data-ng-model="sel2" data-ng-options="words.word for words in rd | orderBy:'id'"></select>
   </label>
 
-  <label class="item item-input item-select">
+  <label class="item item-input item-select" data-ng-style="wstylethree">
     <div class="input-label" data-ng-repeat="wth in wthree">
-      {{ wth.text }}
+      {{ wth.text }} <b data-ng-model="wtone" class="dark">{{ wtthree }}</b>
     </div>
-    <select>
-      <option data-ng-repeat="words in rd">{{ words.word }}</option>
-    </select>
+    <select data-ng-model="sel3" data-ng-options="words.word for words in rd | orderBy:'id'"></select>
   </label>
 
 	</div>
+  <button class="button button-block button-positive" data-ng-click="checkAns()">Check your Answer</button>
+  <button class="button button-block button-positive" data-ng-click="newWord()">Get New Words</button>
 </div> 
 </ion-content>
 </ion-view>	
