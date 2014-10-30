@@ -54,9 +54,10 @@ angular.module('starter.controllers', [])
 		});
 })
 
-.controller('MtcCtrl', function($scope,$route,$http) {
+.controller('MtcCtrl', function($scope,$http) {
   	$http({method: 'GET', url: 'http://api.wordnik.com:80/v4/words.json/randomWords?hasDictionaryDef=false&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&sortBy=alpha&sortOrder=asc&limit=3&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(data){
 		$scope.rd = data;	
+		// $scope.rdd = $scope.data['word'];
 		w1 = data[0].word;
 		w2 = data[1].word;
 		w3 = data[2].word;
@@ -73,8 +74,9 @@ angular.module('starter.controllers', [])
 				$scope.wthree = ld;
 			});
 		});
-
+		// var undefined.word = 'null';
 		$scope.checkAns = function(){
+				
 				if(w1 == $scope.sel1.word){
 					$scope.wstyleone = {'background-color':'#66cc33'};
 					
@@ -82,27 +84,28 @@ angular.module('starter.controllers', [])
 				else {
 					$scope.wstyleone = {'background-color':'#ef4e3a' };
 					$scope.wtone = w1;
+					//console.log($scope.sel1);
+
 				}
 				if(w2 == $scope.sel2.word) {
 					$scope.wstyletwo = {'background-color':'#66cc33'};
 				}
 				else {
-					$scope.wstyletwo = {'background-color':'#ef4e3a '};
+					$scope.wstyletwo = {'background-color':'#ef4e3a'};
 					$scope.wttwo = w2;
+					
 				}
 				if(w3 == $scope.sel3.word) {
 					$scope.wstylethree = {'background-color':'#66cc33'};
 
 				}
 				else {
-					$scope.wstylethree = {'background-color':'#ef4e3a '};
+					$scope.wstylethree = {'background-color':'#ef4e3a'};
 					$scope.wtthree = w3;
 				}
 		}
 
-		$scope.newWord = function(){
-			$route.reload();
-		}
+		
 	
 	
 
