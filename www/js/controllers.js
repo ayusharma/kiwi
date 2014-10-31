@@ -54,7 +54,7 @@ angular.module('starter.controllers', [])
 		});
 })
 
-.controller('MtcCtrl', function($scope,$http) {
+.controller('MtcCtrl', function($scope,$http,$state) {
   	$http({method: 'GET', url: 'http://api.wordnik.com:80/v4/words.json/randomWords?hasDictionaryDef=false&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&sortBy=alpha&sortOrder=asc&limit=3&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(data){
 		$scope.rd = data;	
 		// $scope.rdd = $scope.data['word'];
@@ -105,7 +105,9 @@ angular.module('starter.controllers', [])
 				}
 		}
 
-		
+		$scope.newWord = function(){
+			$state.go($state.current, {}, {reload: true});
+		}
 	
 	
 

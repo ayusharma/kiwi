@@ -2,11 +2,11 @@
 <ion-content class="padding">
 <div data-ng-controller="MtcCtrl">
   <div class="list">
-    <div class="item item-divider">
+    <div class="item item-divider" >
       Make the pairs of given words with their meanings.
     </div>
     <a class="item" href="#">
-      <span data-ng-repeat="words in rd | orderBy:'id'"> {{ words.word }} </span>
+      <span data-ng-repeat="words in rd | orderBy:'id'"> {{ words.word }}, </span>
     </a>
   </div>
 
@@ -30,6 +30,7 @@
       </select>
     </label>
 
+
     <label class="item item-input item-select" data-ng-style="wstylethree">
       <div class="input-label" data-ng-repeat="wth in wthree">
         {{ wth.text }} <b data-ng-model="wtone" class="dark">{{ wtthree }}</b>
@@ -40,8 +41,6 @@
     </label>
 
   </div>
-<!-- <button class="button button-block button-positive" data-ng-click="checkAns()">Check your Answer</button>
-  <button class="button button-block button-positive" data-ng-click="newWord()">Get New Words</button> -->
   <div class="button-bar">
     <a class="button button-positive" data-ng-click="newWord()">Get New Words</a>
     <a class="button button-positive" data-ng-click="checkAns()">Check Answer</a>
