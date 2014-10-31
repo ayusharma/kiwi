@@ -1,8 +1,20 @@
 <ion-view title="Kiwi">
 <ion-content class="padding">
+
 <div data-ng-controller="WodCtrl">
-	<p data-ng-repeat="words in wod"> {{ words.word }} </p>
-	<p data-ng-repeat="wordstext in wodtext"> {{ wordstext.text }} </p>
+<div class="loader" ng-show="ayush"> <div class="loaderin"><i class="ion-loading-c"></i><br>Loading</div></div> 
+	<div class="bar bar-header bar-stable">
+  		<h1 class="title" data-ng-repeat="words in wod"><b>{{ words.word }}</b></h1>
+	</div>
+	<br/><br/>
+	<!-- <p class="title" data-ng-repeat="words in wod">{{ words.word }}</p> -->
+	<div class="card">
+  		<div class="item item-text-wrap" data-ng-repeat="wordstext in wodtext">
+    	{{ wordstext.text }}
+  		</div>
+	</div>
+	
+	<!-- <p data-ng-repeat="wordstext in wodtext"> {{ wordstext.text }} </p> -->
 </div> 
 </ion-content>
 </ion-view>	

@@ -47,16 +47,22 @@ angular.module('starter.controllers', [])
 })
 
 .controller('WodCtrl', function($scope,$http) {
-  $http({method: 'GET', url: 'http://api.wordnik.com:80/v4/words.json/wordOfTheDay?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(data){
+	$scope.ayush = true;
+  $http({method: 'GET', url: 'http://api.wordnik.com/v4/words.json/wordOfTheDay?api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(data){
 		$scope.wod = [data];
-		var temp = [data.examples];
+		var temp = data.examples;
 		$scope.wodtext = temp;
+		$scope.ayush = false;
 		});
+
+
 })
 
 .controller('MtcCtrl', function($scope,$http,$state) {
+	$scope.ayush = true;
   	$http({method: 'GET', url: 'http://api.wordnik.com:80/v4/words.json/randomWords?hasDictionaryDef=false&minCorpusCount=0&maxCorpusCount=-1&minDictionaryCount=1&maxDictionaryCount=-1&minLength=5&maxLength=-1&sortBy=alpha&sortOrder=asc&limit=3&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(data){
-		$scope.rd = data;	
+		$scope.rd = data;
+
 		// $scope.rdd = $scope.data['word'];
 		w1 = data[0].word;
 		w2 = data[1].word;
@@ -72,6 +78,7 @@ angular.module('starter.controllers', [])
 		}).then(function(){
 			$http({method: 'GET', url: 'http://api.wordnik.com:80/v4/word.json/'+w3+'/definitions?limit=1&includeRelated=true&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(ld){
 				$scope.wthree = ld;
+				$scope.ayush = false;
 			});
 		});
 		// var undefined.word = 'null';

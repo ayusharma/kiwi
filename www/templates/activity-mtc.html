@@ -1,15 +1,50 @@
 <ion-view title="Kiwi">
 <ion-content class="padding">
 <div data-ng-controller="MtcCtrl">
+  <div class="loader" ng-show="ayush"> <div class="loaderin"><i class="ion-loading-c"></i><br>Loading</div></div>
   <div class="list">
     <div class="item item-divider" >
-      Make the pairs of given words with their meanings.
+      <h4><b>Select the word with respect to meaning.</b></h4>
     </div>
     <a class="item" href="#">
-      <span data-ng-repeat="words in rd | orderBy:'id'"> {{ words.word }}, </span>
+      <span class="sf" data-ng-repeat="words in rd | orderBy:'id'"> <b>{{ words.word }},</b> </span>
     </a>
   </div>
 
+  <div class="card">
+    <div class="item item-text-wrap" data-ng-style="wstyleone" >
+      <span class="sf" data-ng-repeat="wo in wone">
+      {{ wo.text }} <b data-ng-model="wtone" class="dark">{{ wtone }}</b>
+    </span>
+    <span>
+      <select class="button button-small button-positive" data-ng-model="sel1" data-ng-options="words.word for words in rd | orderBy:'id'" data-ng-init="sel1='1'" required>
+        <option value="" selected>Select Word</option>
+      </select>
+    </span>
+    </div>
+    <div class="item item-text-wrap" data-ng-style="wstyletwo" >
+      <span class="sf" data-ng-repeat="wt in wtwo">
+      {{ wt.text }} <b data-ng-model="wttwo" class="dark">{{ wttwo }}</b>
+    </span>
+    <span>
+      <select class="button button-small button-positive" data-ng-model="sel2" data-ng-options="words.word for words in rd | orderBy:'id'" data-ng-init="sel2='1'" required>
+        <option value="" selected>Select Word</option>
+      </select>
+    </span>
+    </div>
+    <div class="item item-text-wrap" data-ng-style="wstylethree" >
+      <span class="sf" data-ng-repeat="wth in wthree">
+      {{ wth.text }} <b data-ng-model="wtthree" class="dark">{{ wtthree }}</b>
+    </span>
+    <span>
+      <select class="button button-small button-positive" data-ng-model="sel3" data-ng-options="words.word for words in rd | orderBy:'id'" data-ng-init="sel3='1'" required>
+        <option value="" selected>Select Word</option>
+      </select>
+    </span>
+    </div>
+
+  </div>
+<!-- 
   <div class="list">
 
     <label class="item item-input item-select" data-ng-style="wstyleone">
@@ -40,7 +75,7 @@
       </select>
     </label>
 
-  </div>
+  </div> -->
   <div class="button-bar">
     <a class="button button-positive" data-ng-click="newWord()">Get New Words</a>
     <a class="button button-positive" data-ng-click="checkAns()">Check Answer</a>
