@@ -1,6 +1,7 @@
 <ion-view title="Kiwi">
 <ion-content class="padding">
 <div data-ng-controller="DashDetCtrl">
+	<center data-ng-show="hand" style="margin-top:40px;"><i class="ion-android-hand" style="font-size:30px;"></i> <br>No Results Found</center>
   <p data-ng-repeat="mean in wordmean"><br>{{ mean.text }}</p>
 </div>
 </ion-content>

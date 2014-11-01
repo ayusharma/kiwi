@@ -1,6 +1,7 @@
 <ion-view title="Kiwi">
 <ion-content class="padding">
 <div data-ng-controller="DashRelCtrl">
+	<center data-ng-show="hand" style="margin-top:40px;" data-ng-model="errorrel"><i class="ion-android-hand" style="font-size:30px;"></i> <br>{{ errorrel }}</center>
   <p data-ng-repeat="rel in related">{{ rel.relationshipType }}<br>{{ rel.words }}</p>
 </div>
 </ion-content>

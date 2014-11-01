@@ -1,6 +1,7 @@
 <ion-view title="Kiwi">
 <ion-content class="padding">
 <div data-ng-controller="DashAudCtrl">
+	<center data-ng-show="hand" style="margin-top:40px;" data-ng-model="erroraud"><i class="ion-android-hand" style="font-size:30px;"></i> <br>{{ erroraud }}</center>
 	<p data-ng-model="aud"> {{ aud }}</p>
   <audio controls>
   <source src=""  type="audio/mpeg">
