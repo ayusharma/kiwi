@@ -3,10 +3,6 @@ var w1,w2,w3;
 angular.module('starter.controllers', [])
 
 .controller('DashCtrl', function($scope,$http) {
-	// $scope.master = {};
-	// $scope.isUnchanged = function(word) {
- //      return angular.equals(word, $scope.master);
- //    };
 	$scope.wordMean = function(){
 		if($scope.word != null){
 			recword = encodeURI($scope.word);
@@ -18,8 +14,12 @@ angular.module('starter.controllers', [])
 	
 })
 .controller('DashDetCtrl', function($scope,$http) {
+	$scope.ayush = true;
  $http({method: 'GET', url: 'http://api.wordnik.com:80/v4/word.json/'+recword+'/definitions?limit=5&includeRelated=true&useCanonical=false&includeTags=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(data){
 		$scope.wordmean = data;
+
+		$scope.wm = recword;
+		$scope.ayush = false;
 		$scope.hand = false;
 		if($scope.wordmean[0] == null){
 			$scope.hand = true;
@@ -27,16 +27,23 @@ angular.module('starter.controllers', [])
 		});
 })
 .controller('DashExCtrl', function($scope,$http) {
+	$scope.ayush = true;
  $http({method: 'GET', url: 'http://api.wordnik.com:80/v4/word.json/'+recword+'/topExample?useCanonical=false&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(data){
 		$scope.ex = [data];
+		$scope.ayush = false;
+		$scope.we = recword;
 		$scope.hand = false;
 		}).error(function(data){
+			$scope.ayush = false;
 			$scope.hand = true;
 		});
 })
 .controller('DashProCtrl', function($scope,$http) {
+	$scope.ayush = true;
  $http({method: 'GET', url: 'http://api.wordnik.com:80/v4/word.json/'+recword+'/pronunciations?useCanonical=false&limit=50&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(data){
 		$scope.pro = data;
+		$scope.ayush = false;
+		$scope.wp = recword;
 		$scope.hand = false;
 		if($scope.pro[0] == null){
 			$scope.hand = true;
@@ -44,13 +51,18 @@ angular.module('starter.controllers', [])
 		}
 		}).error(function(data){
 			$scope.hand = true;
+			$scope.ayush = false;
 			$scope.errorpro = 'No Results Found';
 
 		});
 })
 .controller('DashAudCtrl', function($scope,$http) {
+	$scope.ayush = true;
  $http({method: 'GET', url: 'http://api.wordnik.com:80/v4/word.json/'+recword+'/audio?useCanonical=false&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(data){
-		$scope.aud = data;
+		var aud = data;
+		$scope.ayush = false;
+		$scope.aw = recword;
+		$scope.audd = aud[0].fileUrl;
 		$scope.hand = false;
 		if($scope.aud[0] == null){
 			$scope.hand = true;
@@ -58,20 +70,24 @@ angular.module('starter.controllers', [])
 
 		}
 		}).error(function(data){
+			$scope.ayush = false;
 			$scope.hand = true;
 			$scope.erroraud = 'No Results Found';
 
 		});;
 })
 .controller('DashRelCtrl', function($scope,$http) {
+	$scope.ayush = true;
  $http({method: 'GET', url: 'http://api.wordnik.com:80/v4/word.json/'+recword+'/relatedWords?useCanonical=false&limitPerRelationshipType=10&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(data){
 		$scope.related = data;
+		$scope.ayush = false;
 		$scope.hand = false;
 		if($scope.related[0] == null){
 			$scope.hand = true;
 			$scope.errorrel = 'No Results Found';
 		}
 		}).error(function(data){
+			$scope.ayush = false;
 			$scope.hand = true;
 			$scope.errorrel = 'No Results Found';
 
@@ -168,4 +184,18 @@ angular.module('starter.controllers', [])
 // })
 
 .controller('AccountCtrl', function($scope) {
-});
+})
+
+.controller('PopupCtrl',function($scope,$rootScope,$window) {	
+	$rootScope.online = navigator.onLine;
+      $window.addEventListener("offline", function () {
+        $rootScope.$apply(function() {
+          $scope.connection = true;
+        });
+      }, false);
+      $window.addEventListener("online", function () {
+        $rootScope.$apply(function() {
+         $scope.connection = false;
+        });
+      }, false);
+ });

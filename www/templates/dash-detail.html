@@ -1,8 +1,17 @@
 <ion-view title="Kiwi">
 <ion-content class="padding">
 <div data-ng-controller="DashDetCtrl">
+	<div class="loader" ng-show="ayush"> <div class="loaderin"><i class="ion-loading-c"></i><br>Loading</div></div>
 	<center data-ng-show="hand" style="margin-top:40px;"><i class="ion-android-hand" style="font-size:30px;"></i> <br>No Results Found</center>
-  <p data-ng-repeat="mean in wordmean"><br>{{ mean.text }}</p>
+  <!-- <p data-ng-repeat="mean in wordmean"><br>{{ mean.text }}</p> -->
+  <div class="card">
+  	<div class="item item-divider" data-ng-model="wm">
+    {{ wm }}
+  </div>
+  <div class="item item-text-wrap" data-ng-repeat="mean in wordmean">
+    {{ mean.text }}
+  </div>
+</div>
 </div>
 </ion-content>
 </ion-view>

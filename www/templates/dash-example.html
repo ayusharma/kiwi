@@ -1,8 +1,17 @@
 <ion-view title="Kiwi">
 <ion-content class="padding">
 <div data-ng-controller="DashExCtrl">
+  <div class="loader" ng-show="ayush"> <div class="loaderin"><i class="ion-loading-c"></i><br>Loading</div></div>
   <center data-ng-show="hand" style="margin-top:40px;"><i class="ion-android-hand" style="font-size:30px;"></i> <br>No Results Found</center>
-  <p data-ng-repeat="examp in ex"><br>{{ examp }}</p>
+  <!-- <p data-ng-repeat="examp in ex"><br>{{ examp }}</p> -->
+  <div class="card">
+    <div class="item item-divider" data-ng-model="we">
+    {{ we }}
+  </div>
+  <div class="item item-text-wrap" data-ng-repeat="examp in ex">
+    {{ examp.text  }}
+  </div>
+</div>
 </div>
 </ion-content>
 </ion-view>

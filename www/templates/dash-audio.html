@@ -1,12 +1,19 @@
 <ion-view title="Kiwi">
 <ion-content class="padding">
 <div data-ng-controller="DashAudCtrl">
+	<div class="loader" ng-show="ayush"> <div class="loaderin"><i class="ion-loading-c"></i><br>Loading</div></div>
 	<center data-ng-show="hand" style="margin-top:40px;" data-ng-model="erroraud"><i class="ion-android-hand" style="font-size:30px;"></i> <br>{{ erroraud }}</center>
-	<p data-ng-model="aud"> {{ aud }}</p>
-  <audio controls>
-  <source src=""  type="audio/mpeg">
-  Your browser does not support the audio tag.
-</audio>
+
+	<!-- <p data-ng-model="audd"> {{ audd }}</p> -->
+
+	 <div class="card">
+  	<div class="item item-divider" data-ng-model="aw">
+    {{ aw }}
+  </div>
+  <div class="item item-text-wrap" data-ng-model="audd">
+    <a ng-href="{{ audd }}" target="_blank">play</a>
+  </div>
+</div>
 </div>
 </ion-content>
 </ion-view>
