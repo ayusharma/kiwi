@@ -4,14 +4,16 @@
 	<div class="loader" ng-show="ayush"> <div class="loaderin"><i class="ion-loading-c"></i><br>Loading</div></div>
 	<center data-ng-show="hand" style="margin-top:40px;" data-ng-model="erroraud"><i class="ion-android-hand" style="font-size:30px;"></i> <br>{{ erroraud }}</center>
 
-	<!-- <p data-ng-model="audd"> {{ audd }}</p> -->
-
+	<!-- <p data-ng-model="audd"> {{ audd }}</p>
+ -->
 	 <div class="card">
   	<div class="item item-divider" data-ng-model="aw">
     {{ aw }}
   </div>
-  <div class="item item-text-wrap" data-ng-model="audd">
-    <a ng-href="{{ audd }}" target="_blank">play</a>
+  <div class="item item-text-wrap">
+    <div ng-repeat="audio in event.audios">
+            <audio ng-src="{{audio}}" controls></audio>
+        </div>
   </div>
 </div>
 </div>
