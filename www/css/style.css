@@ -54,3 +54,15 @@ audio {
 	display: block;
 	margin:auto;
 }
+a:link {
+	color: #444 !important;
+}
+a:visited {
+	color: #444 !important;
+}
+a:hover {
+	color: #4a87ee !important;
+}
+a:active {
+	color: #444 !important;
+}

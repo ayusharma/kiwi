@@ -189,16 +189,21 @@ angular.module('starter.controllers', [])
 .controller('AccountCtrl', function($scope) {
 })
 
-.controller('PopupCtrl',function($scope,$rootScope,$window) {	
-	$rootScope.online = navigator.onLine;
-      $window.addEventListener("offline", function () {
-        $rootScope.$apply(function() {
-          $scope.connection = true;
-        });
-      }, false);
-      $window.addEventListener("online", function () {
-        $rootScope.$apply(function() {
-         $scope.connection = false;
-        });
-      }, false);
+.controller('PopupCtrl',function($scope,$interval) {	
+
+	$interval(function() {
+    var networkState = navigator.connection.type;
+        $scope.is_online = networkState !== Connection.UNKNOWN && networkState !== Connection.NONE;
+   }, 1000);
+	// $rootScope.online = navigator.onLine;
+ //      $window.addEventListener("offline", function () {
+ //        $rootScope.$apply(function() {
+ //          $scope.connection = true;
+ //        });
+ //      }, false);
+ //      $window.addEventListener("online", function () {
+ //        $rootScope.$apply(function() {
+ //         $scope.connection = false;
+ //        });
+ //      }, false);
  });
