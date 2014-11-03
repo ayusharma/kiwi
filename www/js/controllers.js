@@ -45,7 +45,7 @@ angular.module('starter.controllers', [])
 		$scope.ayush = false;
 		$scope.wp = recword;
 		$scope.hand = false;
-		if($scope.pro[0] == null){
+		if($scope.pro == null){
 			$scope.hand = true;
 			$scope.errorpro = 'No Results Found';
 		}
@@ -56,28 +56,40 @@ angular.module('starter.controllers', [])
 
 		});
 })
-.controller('DashAudCtrl', function($scope,$http,$sce) {
+.controller('DashAudCtrl', function($scope,$http) {
 	$scope.ayush = true;
  $http({method: 'GET', url: 'http://api.wordnik.com:80/v4/word.json/'+recword+'/audio?useCanonical=false&limit=1&api_key=a2a73e7b926c924fad7001ca3111acd55af2ffabf50eb4ae5'}).success(function(data){
-		var aud = data;
+		$scope.aud = data;
+		var audk = data;
 		$scope.ayush = false;
 		$scope.aw = recword;
-		$scope.audd = aud[0].fileUrl;
-		$scope.event = { 'audios': [
-        	$sce.trustAsResourceUrl($scope.audd)
-    ]	};
-		$scope.hand = false;
+		
+		// $scope.event = { 'audios': [
+  //       	$sce.trustAsResourceUrl($scope.audd)
+  //   ]	};
+  		$scope.hand = false;
 		if($scope.aud[0] == null){
 			$scope.hand = true;
+			$scope.playbutton = false;
 			$scope.erroraud = 'No Results Found';
 
+		}else {
+			$scope.playbutton = true;
+			$scope.audd = audk[0].fileUrl;
+			var media = new Media($scope.audd);
+  			$scope.playAud =function(){ 
+  			media.play();
 		}
+
+		}
+  		
+
 		}).error(function(data){
 			$scope.ayush = false;
 			$scope.hand = true;
 			$scope.erroraud = 'No Results Found';
 
-		});;
+		});
 })
 .controller('DashRelCtrl', function($scope,$http) {
 	$scope.ayush = true;
