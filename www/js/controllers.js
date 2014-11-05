@@ -1,12 +1,13 @@
-var recword;
+var recword = null;
 var w1,w2,w3;
 angular.module('starter.controllers', [])
 
-.controller('DashCtrl', function($scope,$http) {
+.controller('DashCtrl', function($scope) {
+	
 	$scope.wordMean = function(){
-		var recwordd = $scope.word;
-		recword = recwordd.toLowerCase();
+		recword = $scope.word;
 	}
+	$scope.word = recword;
 })
 
 .controller('DashDetCtrl', function($scope,$http) {
@@ -21,6 +22,10 @@ angular.module('starter.controllers', [])
 			$scope.ayush = false;
 			$scope.hand = false;
 
+		}).error(function(data){
+			$scope.ayush = false;
+			$scope.hand = true;
+			$scope.kiwierror = "Please enter proper value";
 		});
 	}
 })

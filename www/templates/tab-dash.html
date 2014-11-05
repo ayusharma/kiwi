@@ -4,7 +4,7 @@
 	
 	<label class="item item-input">
 		<i class="icon ion-search placeholder-icon"></i>
-		<input type="text" placeholder="Enter a word for query" data-ng-model="word">
+		<input type="text" data-ng-value="{{ word }}" placeholder="Enter a word for query" data-ng-model="word" style="text-transform: lowercase;" required> 
 	</label>
 	<!-- <button class="button button-block button-positive" data-ng-click="wordMean()">Find the Definition</button> -->
 
