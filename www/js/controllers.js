@@ -217,6 +217,7 @@ $scope.newWord = function(){
 		var networkState = navigator.connection.type;
 		$scope.is_online = networkState !== Connection.UNKNOWN && networkState !== Connection.NONE;
 	}, 1000);
+
 // $rootScope.online = navigator.onLine;
 //      $window.addEventListener("offline", function () {
 //        $rootScope.$apply(function() {
@@ -228,4 +229,8 @@ $scope.newWord = function(){
 //         $scope.is_online = false;
 //        });
 //      }, false);
+
+	 // $interval(function() {
+  //       navigator.splashscreen.hide();
+  //   }, 2000000);
 });
