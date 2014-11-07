@@ -212,7 +212,7 @@ $scope.newWord = function(){
 })
 
 .controller('PopupCtrl',function($scope,$interval) {	
-
+	$scope.is_online = true;
 	$interval(function() {
 		var networkState = navigator.connection.type;
 		$scope.is_online = networkState !== Connection.UNKNOWN && networkState !== Connection.NONE;
