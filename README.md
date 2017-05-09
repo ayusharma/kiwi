@@ -1,16 +1,45 @@
-kiwi
-====
+![](screenshots/kiwi.png)
+
+
 URL:
 https://play.google.com/store/apps/details?id=com.ionicframework.kiwi474449
 
-A Dictionary application for Android and Firefox OS, which provide definition, examples, pronunciation & much more of the input word. The app also includes activities like ‘Word of the Day’ and ‘Match the column’ to improve the vocabulary of the user. I used Ionic Framework, which works on Angular JS and application uses open source Wordnik APIs to get the relevant data.
 
-Technology Used: Ionic Framework Angular JS Wordnik API gulp npm gimp Apache Cordova Google Play Store
+### Kiwi - A Dictionary
+***
+**Overview**: An online educational dictionary application for Android, Web and Firefox OS which work on the APIs of Wordnik. App helps to improve your vocabulary skills by challenging yourself and others with different activities and word games.
 
-For further queries do not hesitate to contact me.
+### Screenshots
+***
+This sections contains the final screen of the project which has been designed.
 
-Ayush Sharma Arya College Of Engineering & IT, Jaipur India.
+<img src="screenshots/kiwi1.png" with="200"/>
+<img src="screenshots/kiwi2.png" with="200"/>
+<img src="screenshots/kiwi3.png" with="200"/>
+<img src="screenshots/kiwi4.png" with="200"/>
+<img src="screenshots/kiwi5.png" with="200"/>
+<img src="screenshots/kiwi6.png" with="200"/>
 
-contact details: ayush.aceit@gmail.com
 
-IRC: ayushpix
+### Features
+***
+ - A Dictionary Application for Android, Web and Firefox OS
+ - Get Definition, Examples, Related words, Pronunciation and Listen Audio for the input word
+ - Activities like 'Word of the Day' & 'Match the Column' to improve vocabulary.
+
+### Technology Stack
+***
+HTML5 CSS3 Angular JS Apache Cordova Ubuntu
+
+### Learning & Experience
+***
+Kiwi was my first meet up with Android platform using the concept of Hybrid Applications.
+ - Learned about Android architecture, Linux Kernel, Dalvik Virtual Machines and Java applications.
+ - Concept of Hybrid applications using Apache Cordova Phonegap & Ionic
+ - Learned about REST APIs, Access Methods (Tokens), APIs Quota and calls.
+ - Used Ionic platform based on AngularJS to build application.
+ - Setting up Android Environment in Linux and Live Debugging.
+ - Setting up cross platform application at a single time.
+ - Learned about Firefox OS marketplace, Manifesting and Hosting of Application.
+ - Uploading application to Android playstore, Setting up production environment (Alpha, Beta, Statging).
+ - Generating Secure Key store and Android App Releases and Updates.
